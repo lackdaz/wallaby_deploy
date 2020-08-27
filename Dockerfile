@@ -31,8 +31,8 @@ RUN apt update && apt install -y build-essential python3 python3-pip python3-dev
 # RUN git apply ffmpeg_nvmpi.patch && ./configure --enable-nvmpi && make
 # WORKDIR /app
 
-RUN wget https://github.com/lackdaz/wallaby_deploy/blob/master/numpy-1.18.4-cp36-cp36m-linux_aarch64.whl?raw=true -O /tmp/numpy-1.18.4-cp36-cp36m-linux_aarch64.whl	
-RUN wget https://github.com/lackdaz/wallaby_deploy/blob/master/torch-1.4.0-cp36-cp36m-linux_aarch64.whl?raw=true -O /tmp/torch-1.4.0-cp36-cp36m-linux_aarch64.whl
+RUN wget http://206.189.146.100/public/numpy-1.18.4-cp36-cp36m-linux_aarch64.whl -O /tmp/numpy-1.18.4-cp36-cp36m-linux_aarch64.whl	
+RUN wget http://206.189.146.100/public/torch-1.4.0-cp36-cp36m-linux_aarch64.whl -O /tmp/torch-1.4.0-cp36-cp36m-linux_aarch64.whl
 
 
 # FLASK
@@ -59,7 +59,7 @@ RUN python3 -m pip install -U pip \
 
 
 # OPENCV
-RUN wget -P /tmp/ https://media.githubusercontent.com/media/lackdaz/wallaby_deploy/master/OpenCV-4.1.1-dirty-aarch64.sh && chmod +x /tmp/OpenCV-4.1.1-dirty-aarch64.sh
+RUN wget -P /tmp/ http://206.189.146.100/public/OpenCV-4.1.1-dirty-aarch64.sh && chmod +x /tmp/OpenCV-4.1.1-dirty-aarch64.sh
 RUN /tmp/OpenCV-4.1.1-dirty-aarch64.sh --prefix=/usr/local/ --skip-license \
     && sudo ldconfig \
     && sudo updatedb
